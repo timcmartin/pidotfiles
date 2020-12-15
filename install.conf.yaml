@@ -9,6 +9,10 @@
     ~/.vimrc: vimrc
     ~/.zshrc: zshrc
 
+- create:
+  - ~/.vim
+  - ~/.vim/autoload
+
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - sudo apt update
