@@ -1,0 +1,42 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.bash_aliases: bash_aliases
+    ~/.vimrc: vimrc
+    ~/.zshrc: zshrc
+
+- create:
+  - ~/.vim
+  - ~/.vim/autoload
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - sudo apt update
+  -
+    command: sudo apt install git
+    stdin: true
+    stdout: true
+  -
+    command: sudo apt install vim
+    stdin: true
+    stdout: true
+  -
+    command: sudo apt-get install zsh
+    stdin: true
+    stdout: true
+  -
+    command: sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    stdin: true
+    stdout: true
+  -
+    command: git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    stdin: true
+    stdout: true
+  -
+    command: git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    stdin: true
+    stdout: true
