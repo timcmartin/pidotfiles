@@ -12,9 +12,27 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - sudo apt update
-  - sudo apt install git
-  - sudo apt install vim
-  - sudo apt-get install zsh
-  - sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-  - git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-  - git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  -
+    command: sudo apt install git
+    stdin: true
+    stdout: true
+  -
+    command: sudo apt install vim
+    stdin: true
+    stdout: true
+  -
+    command: sudo apt-get install zsh
+    stdin: true
+    stdout: true
+  -
+    command: sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    stdin: true
+    stdout: true
+  -
+    command: git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+    stdin: true
+    stdout: true
+  -
+    command: git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    stdin: true
+    stdout: true
